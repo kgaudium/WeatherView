@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherView</title>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='scripts/weather_view.js') }}"></script>
+</head>
+<body>
+    <header>
+        <div class="header-title-div">
+            <div class="header-title">
+                <a href="{{ url_for('index') }}">WeatherView</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <input type="text" class="search-bar" id="search-bar" placeholder="Поиск" onkeydown="performSearch(this)">
+    </div>
+
+    <div class="container">
+        <div class="weather-info bg-white">
+            <div class="left">
+                <div class="city" id="name"></div>
+                <div class="temp temp-hot">
+                    <div class="real-temp" id="real-temp"></div>
+                    <div class="feels-like-temp"> (Ощущается как <span id="feels-like-temp"></span>)</div>
+                </div>
+
+                <div class="description">
+                    <img src="" alt="Wind Icon" class="icon" id="icon">
+                    <div id="description"></div>
+                </div>
+                <div class="date" id="date"></div>
+            </div>
+            <div class="right">
+                <div class="wind-direction">
+                    Ветер: <span id="wind-speed"></span>м/с (<span id="wind-scale8"></span>)
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="arrow" id="wind-arrow">
+                        <path d="m26.934 28.641-10-26a1 1 0 0 0-1.868 0l-10 26A1 1 0 0 0 6.6 29.8l9.4-7.05 9.4 7.05a1 1 0 0 0 1.533-1.159z"  data-name="Arrow GPS"></path>
+                    </svg>
+                </div>
+                <div class="pressure">Давление: <span id="pressure"></span> мм рт.ст.</div>
+                <div class="humidity">Влажность: <span id="humidity"></span>%</div>
+{#                <div class="geomagnetic">Г/м активность: <span id="gm-intensity">Шторм</span></div>#}
+                <div class="water">Вода: <span id="water"></span></div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-item">Информация получена из сервиса <a href="https://www.gismeteo.ru/" target=”_blank”>Gismeteo.ru</a></div>
+        <div class="footer-item">Made with 🫀 by <a href="https://github.com/kgaudium/" target=”_blank”>Gaudium</a></div>
+    </footer>
+</body>
+</html>

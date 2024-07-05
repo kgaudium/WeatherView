@@ -1,5 +1,5 @@
 from weather.location import Location
-from weather_forecast_enums import *
+from weather.gismeteo_weather_forecast_enums import *
 import datetime
 import abc
 
@@ -85,10 +85,10 @@ class WeatherForecastProvider(metaclass=abc.ABCMeta):
     def precipitation_intensity(self) -> PrecipitationIntensity:
         pass
 
-    @property
-    @abc.abstractmethod
-    def geomagnetic_field_intensity(self) -> GeomagneticFieldIntensity:
-        pass
+    # @property
+    # @abc.abstractmethod
+    # def geomagnetic_field_intensity(self) -> GeomagneticFieldIntensity:
+    #     pass
 
     @abc.abstractmethod
     def get_icon_file_name(self) -> str:

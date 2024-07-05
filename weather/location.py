@@ -1,7 +1,7 @@
 from enum import Enum
-from coordinates import Coordinate
-from gismeteo_weather_requests import request_location_by_ip, request_location_by_name, request_location_by_coordinates
-from weather.weather_forecast_enums import Language
+from weather.coordinates import Coordinate
+# from weather.gismeteo_weather_requests import request_location_by_ip, request_location_by_name, request_location_by_coordinates
+from weather.gismeteo_weather_forecast_enums import Language
 
 
 class LocationKind(Enum):
@@ -31,15 +31,21 @@ class Location:
 
 
 def search_location_by_coordinates(coordinates: Coordinate, language: Language = Language.RUSSIAN) -> Location:
-    data = request_location_by_coordinates(coordinates, language=language).json()
+    from weather.gismeteo_weather_requests import request_location_by_coordinates
+
+    data = request_location_by_coordinates(coordinates, language=language).json()["response"]["items"][0]
     return Location(data["id"], data["name"], LocationKind(data["kind"]))
 
 
 def search_location_by_ip(ip: str, language: Language = Language.RUSSIAN) -> Location:
-    data = request_location_by_ip(ip, language=language).json()
+    from weather.gismeteo_weather_requests import request_location_by_ip
+
+    data = request_location_by_ip(ip, language=language).json()["response"]
     return Location(data["id"], data["name"], LocationKind(data["kind"]))
 
 
 def search_location_by_name(query: str, language: Language = Language.RUSSIAN) -> Location:
-    data = request_location_by_name(query, language=language).json()
+    from weather.gismeteo_weather_requests import request_location_by_name
+
+    data = request_location_by_name(query, language=language).json()["response"]["items"][0]
     return Location(data["id"], data["name"], LocationKind(data["kind"]))
