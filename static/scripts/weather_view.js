@@ -38,21 +38,6 @@ async function getWeatherByIP() {
     };
 
     return await doRequest('/get-weather-by-ip', data)
-
-    // try {
-    //     const response = await fetch(, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     });
-    //
-    //     return await response.json();
-    // } catch (error) {
-    //     console.error('Error:', error);
-    //     throw error;
-    // }
 }
 
 async function getWeatherByName(name){
@@ -108,7 +93,6 @@ async function setWeather(weather_data) {
     document.getElementById("wind-arrow").style.rotate = weather_data["wind_degrees"] + "deg";
     document.getElementById("pressure").textContent = weather_data["pressure"];
     document.getElementById("humidity").textContent = weather_data["humidity"];
-    // document.getElementById("gm-intensity").textContent = weather_data["gm"];
     document.getElementById("water").textContent = weather_data["water"];
 
 }

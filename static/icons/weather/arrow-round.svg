@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 50 50"><rect width="50" height="50" rx="25" transform="matrix(-1 0 0 1 50 0)" fill="#09F" fill-opacity=".05" />
+    <path d="m28 15-9.293 9.293a1 1 0 0 0 0 1.414L28 35" stroke="#09F" stroke-width="1.5" stroke-linecap="round" />
+  </svg>
